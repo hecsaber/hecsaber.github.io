@@ -55,16 +55,15 @@ body {
 }
 
 .nav-bar {
+	width: 100%;
 	position: absolute;
 	top: 0;
 	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	justify-items: center;
-	padding: 10px;
+	display: flex;
+	justify-content: space-between;
 }
 
-.nav-right { 
+.nav-right {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -85,6 +84,14 @@ input[type="search"] {
 
 input[type="search"]:focus-visible {
 	border: none;
+}
+
+.nav-holder {
+	width: 1340px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
 }
 
 .hamb {
@@ -164,15 +171,15 @@ html {
 }
 
 .content {
-	max-width: 1200px;
+	max-width: 1340px;
 	margin: 0 auto;
 	gap: 20px;
 	display: grid;
-	grid-template-columns: repeat(3, 400px);
+	grid-template-columns: repeat(3, 1fr);
 }
 
 .item {
-	background: 011F3F;
+	background: #011F3F;
 	height: 400px;
 }
 
@@ -181,31 +188,80 @@ html {
 }
 
 .arrow {
-	background: mediumorchid;
+	background: #6DBDC6;
+	margin-top: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 40px;
-	height: 1px;
+	height: 2px;
+	position: relative;
+	margin-right: 2rem;
 }
 
 .arrow::before, .arrow::after {
+	position: absolute;
 	content: '';
 	display: block;
-	background: mediumorchid;
-	width: 1px;
-	height: 30px;
+	background: #6DBDC6;
+	height: 2px;
+	width: 30px;
 	transform: rotateZ(45deg);
+	right: -5px;
+}
+
+.arrow::after {
+	top: -10px;
 }
 
 .arrow::before {
 	transform: rotateZ(-45deg);
+	bottom: -10px;
+}
+
+.reverse-arrow::after, .reverse-arrow::before {
+	left: -5px;
+}
+
+.reverse-arrow::before {
+	transform: rotateZ(45deg);
+}
+
+.reverse-arrow::after {
+	transform: rotateZ(-45deg);
+}
+
+.arrow.long-arrow {
+	width: 120px;
+	transform: scale(2);
+}
+
+.slide .arrow, .slide .arrow::before, .slide .arrow::after {
+	background-color: #011F3F;
+}
+
+.slide .arrow-holder {
+	cursor: pointer;
 }
 
 .fa {
 	color: white;
 }
 
-.menu-list {
+.menu-list, .rules {
 	margin-left: calc(66/1920*100%);
 	margin-top: 40px;
+}
+
+.rules {
+	color: #6DBDC6;
+	font-size: 20px;
+	position: absolute;
+	bottom: 50px;
+}
+
+.rules-item:not(:first-of-type) {
+	margin-top: 10px;
 }
 
 .menu-items {
@@ -215,4 +271,29 @@ html {
 	font-size: 20px;
 	font-weight: 500;
 	margin-bottom: 3rem;
+	display: flex;
+}
+
+.rules a {
+	color: inherit;
+}
+
+.slide {
+	margin: 2rem auto;
+	display: flex;
+	justify-content: space-between;
+	max-width: 1340px;
+}
+
+.slide-content {
+	min-width: 60%;
+	text-transform: uppercase;
+	font-size: 20px;
+	font-weight: 500;
+	color: #011F3F;
+	text-align: center;
+}
+
+.no-mr {
+	margin-right: 0;
 }
